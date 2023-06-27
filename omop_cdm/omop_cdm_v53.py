@@ -43,6 +43,7 @@ class CdmSource(Base):
     __tablename__ = "cdm_source"
 
     _id = Column(Integer, primary_key=True)
+    # cdm_source_name = Column(String(255), primary_key=True)
     cdm_source_name = Column(String(255), nullable=True)
     cdm_source_abbreviation = Column(String(25))
     cdm_holder = Column(String(255))
@@ -88,6 +89,7 @@ class ConceptAncestor(Base):
     __tablename__ = "concept_ancestor"
 
     _id = Column(Integer, primary_key=True)
+    # ancestor_concept_id = Column(Integer, primary_key=False)
     ancestor_concept_id = Column(Integer, nullable=False)
     descendant_concept_id = Column(Integer, nullable=False)
     min_levels_of_separation = Column(Integer, nullable=False)
@@ -116,8 +118,9 @@ class ConceptRelationship(Base):
 
 class ConceptSynonym(Base):
     __tablename__ = "concept_synonym"
-    ###
+
     _id = Column(Integer, primary_key=True)
+    # concept_id = Column(Integer, primary_key=False)
     concept_id = Column(Integer, nullable=False)
     concept_synonym_name = Column(String(1000), nullable=False)
     language_concept_id = Column(Integer, nullable=False)
@@ -279,8 +282,8 @@ class DrugStrength(Base):
     __tablename__ = "drug_strength"
 
     _id = Column(Integer, primary_key=True)
-    drug_concept_id = Column(Integer, nullable=False)
     # drug_concept_id = Column(Integer, primary_key=True)
+    drug_concept_id = Column(Integer, nullable=False)
     ingredient_concept_id = Column(Integer, nullable=False)
     amount_value = Column(Numeric)
     amount_unit_concept_id = Column(Integer)
@@ -347,6 +350,7 @@ class Metadata(Base):
     __tablename__ = "metadata"
 
     _id = Column(Integer, primary_key=True)
+    # metadata_concept_id = Column(Integer, primary_key=False)
     metadata_concept_id = Column(Integer, nullable=False)
     metadata_type_concept_id = Column(Integer, nullable=False)
     name = Column(String(250), nullable=False)
@@ -452,15 +456,12 @@ class PayerPlanPeriod(Base):
 class Person(Base):
     __tablename__ = "person"
 
-    # _id = Column(Integer, primary_key=True)
     person_id = Column(Integer, primary_key=True)
     gender_concept_id = Column(Integer, nullable=False)
     year_of_birth = Column(Integer, nullable=False)
     month_of_birth = Column(Integer)
     day_of_birth = Column(Integer)
-    # time_of_birth = Column(String(10))
     birth_datetime = Column(String(10))
-    # death_datetime = Column(String(10))
     race_concept_id = Column(Integer, nullable=False)
     ethnicity_concept_id = Column(Integer, nullable=False)
     location_id = Column(Integer)

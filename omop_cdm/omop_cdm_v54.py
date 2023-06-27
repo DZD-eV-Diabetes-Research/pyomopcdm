@@ -19,8 +19,9 @@ metadata = Base.metadata
 class AttributeDefinition(Base):
     __tablename__ = "attribute_definition"
 
-    # _id = Column(Integer, primary_key=True)
-    attribute_definition_id = Column(Integer, primary_key=True)
+    _id = Column(Integer, primary_key=True)
+    # attribute_definition_id = Column(Integer, primary_key=True)
+    attribute_definition_id = Column(Integer, nullable=True)
     attribute_name = Column(String(255), nullable=False)
     attribute_description = Column(Text)
     attribute_type_concept_id = Column(Integer, nullable=False)
@@ -42,6 +43,7 @@ class CdmSource(Base):
     __tablename__ = "cdm_source"
 
     _id = Column(Integer, primary_key=True)
+    # cdm_source_name = Column(String(255), primary_key=True)
     cdm_source_name = Column(String(255), nullable=True)
     cdm_source_abbreviation = Column(String(25), nullable=True)
     cdm_holder = Column(String(255), nullable=True)
@@ -69,6 +71,7 @@ class CohortDefinition(Base):
     __tablename__ = "cohort_definition"
 
     _id = Column(Integer, primary_key=True)
+    # cohort_definition_id = Column(Integer, primary_key=True)
     cohort_definition_id = Column(Integer, nullable=True)
     cohort_definition_name = Column(String(255), nullable=False)
     cohort_definition_description = Column(Text)
@@ -97,6 +100,7 @@ class ConceptAncestor(Base):
     __tablename__ = "concept_ancestor"
 
     _id = Column(Integer, primary_key=True)
+    # ancestor_concept_id = Column(Integer, primary_key=False)
     ancestor_concept_id = Column(Integer, nullable=False)
     descendant_concept_id = Column(Integer, nullable=False)
     min_levels_of_separation = Column(Integer, nullable=False)
@@ -324,15 +328,6 @@ class Episode(Base):
     episode_source_concept_id = Column(Integer)
 
 
-class EpisodeEvent(Base):
-    __tablename__ = "episode_event"
-
-    _id = Column(Integer, primary_key=True)
-    episode_id = Column(Integer, nullable=False)
-    event_id = Column(Integer, nullable=False)
-    episode_event_field_concept_id = Column(Integer, nullable=False)
-
-
 class FactRelationship(Base):
     __tablename__ = "fact_relationship"
 
@@ -482,7 +477,6 @@ class ObservationPeriod(Base):
 class PayerPlanPeriod(Base):
     __tablename__ = "payer_plan_period"
 
-    # _id = Column(Integer, primary_key=True)
     payer_plan_period_id = Column(Integer, primary_key=True)
     person_id = Column(Integer, nullable=False)
     payer_plan_period_start_date = Column(String(30), nullable=False)

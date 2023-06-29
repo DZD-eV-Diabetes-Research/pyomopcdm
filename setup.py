@@ -13,7 +13,7 @@ setup(
         "Documentation": "https://github.com/DZD-eV-Diabetes-Research/pyomopcdm-docs/",####
         "Source": "https://github.com/DZD-eV-Diabetes-Research/pyomopcdm",
     },
-    url="https://dzd-ev.github.io/dict2graph-docs/",
+    url="https://github.com/DZD-eV-Diabetes-Research/pyomopcdm-docs/",
     author="Yaroslav Zdravomyslov",
     author_email="yaroslav.zdravomyslov@helmholtz-munich.de",
     license="MIT",
@@ -21,15 +21,6 @@ setup(
     install_requires=[
         "sqlalchemy",
     ],
-    extras_require={
-        "tests": ["pytest", "deepdiff"],
-        "docs": [
-            "mkdocs",
-            "mkdocstrings[python]",
-            "mkdocs-autorefs",
-            "mkdocs-material",
-        ],
-    },
     python_requires=">=3.9",
     zip_safe=False,
     include_package_data=True,
